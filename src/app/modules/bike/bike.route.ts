@@ -9,8 +9,8 @@ const router = express.Router();
 
 router.post(
   "/",
-  requestValidation(BikeValidationSchema.bikeValidationSchema),
   authCheck(USER_ROLE.admin),
+  requestValidation(BikeValidationSchema.bikeValidationSchema),
   BikeControllers.createBike
 );
 export const BikesRoutes = router;
