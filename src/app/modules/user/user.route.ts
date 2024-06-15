@@ -11,4 +11,9 @@ router.get(
   UserController.getProfile
 );
 
+router.put(
+  "/me",
+  authCheck(USER_ROLE.admin, USER_ROLE.user),
+  UserController.updateProfile
+);
 export const UserRoutes = router;
