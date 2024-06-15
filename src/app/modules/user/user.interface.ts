@@ -1,3 +1,6 @@
+import { Model } from "mongoose";
+import { USER_ROLE } from "./user.constant";
+
 export interface TUser {
   name: string;
   email: string;
@@ -5,4 +8,14 @@ export interface TUser {
   phone: string;
   address: string;
   role: "admin" | "user";
+}
+
+export type TUserRole = keyof typeof USER_ROLE;
+
+export interface ExtendModel extends Model<TUser> {
+  isUserExist(email: string): Promise<TUser>;
+  isPasswordMatched(
+    plainPassword: string,
+    hashPassword: string
+  ): Promise<boolean>;
 }

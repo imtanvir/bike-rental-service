@@ -1,4 +1,8 @@
-import { TUser } from "./user.interface";
 import { UserModel } from "./user.model";
 
-export const UserService = {};
+const getProfile = async (email: string) => {
+  const result = await UserModel.isUserExist(email);
+  return result;
+};
+
+export const UserService = { getProfile };

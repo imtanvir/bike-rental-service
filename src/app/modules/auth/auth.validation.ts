@@ -27,6 +27,20 @@ const signUpValidationSchema = z.object({
   }),
 });
 
+const logInValidationSchema = z.object({
+  body: z.object({
+    email: z
+      .string()
+      .email("Invalid email address format")
+      .regex(
+        /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+        "Email must match specific pattern"
+      ),
+    password: z.string().min(6, "Password must be at least 6 characters long"),
+  }),
+});
+
 export const AuthValidationSchema = {
   signUpValidationSchema,
+  logInValidationSchema,
 };

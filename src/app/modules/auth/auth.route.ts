@@ -10,5 +10,10 @@ router.post(
   requestValidation(AuthValidationSchema.signUpValidationSchema),
   AuthController.signUpUser
 );
+router.post(
+  "/login",
+  requestValidation(AuthValidationSchema.logInValidationSchema),
+  AuthController.logInUser
+);
 
 export const AuthRoutes = router;
