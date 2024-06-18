@@ -2,6 +2,8 @@
 
 Welcome to the Bike Rental Reservation System backend project! This backend is designed to support a seamless bike rental service for tourists and locals in Cox's Bazar. Below you'll find a comprehensive overview of the project, its features, the technologies used, and how to set it up and run it on your local machine.
 
+Live: [https://assignment-3-kappa-dun.vercel.app/]
+
 ---
 
 ## 📖 Overview
@@ -38,33 +40,33 @@ Follow these instructions to get the backend up and running on your local machin
 
 1. **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/yourusername/bike-rental-backend.git
-    cd bike-rental-backend
-    ```
+   ```bash
+   git clone https://github.com/yourusername/bike-rental-backend.git
+   cd bike-rental-backend
+   ```
 
 2. **Install dependencies:**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. **Set up environment variables:**
 
-    Create a `.env` file in the root directory and add the following variables:
+   Create a `.env` file in the root directory and add the following variables:
 
-    ```plaintext
-    MONGO_URI=mongodb://localhost:27017/bike-rental
-    JWT_SECRET=your_jwt_secret
-    ```
+   ```plaintext
+   MONGO_URI=mongodb://localhost:27017/bike-rental
+   JWT_SECRET=your_jwt_secret
+   ```
 
 4. **Run the application:**
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
-    The server will start on `http://localhost:3000`.
+   The server will start on `http://localhost:3000`.
 
 ## 📚 API Endpoints
 
@@ -78,27 +80,29 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Method:** `POST`
 - **Request Body:**
 
-    ```json
-    {
-      "name": "John Doe",
-      "email": "john@example.com",
-      "password": "password123",
-      "phone": "1234567890",
-      "address": "123 Main St, Anytown",
-      "role": "user"
-    }
-    ```
+  ```json
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123",
+    "phone": "1234567890",
+    "address": "123 Main St, Anytown",
+    "role": "user"
+  }
+  ```
 
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 201,
-      "message": "User registered successfully",
-      "data": { /* user data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 201,
+    "message": "User registered successfully",
+    "data": {
+      /* user data */
     }
-    ```
+  }
+  ```
 
 #### **Login**
 
@@ -106,24 +110,26 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Method:** `POST`
 - **Request Body:**
 
-    ```json
-    {
-      "email": "john@example.com",
-      "password": "password123"
-    }
-    ```
+  ```json
+  {
+    "email": "john@example.com",
+    "password": "password123"
+  }
+  ```
 
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "User logged in successfully",
-      "token": "jwt_token",
-      "data": { /* user data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "User logged in successfully",
+    "token": "jwt_token",
+    "data": {
+      /* user data */
     }
-    ```
+  }
+  ```
 
 #### **Get Profile**
 
@@ -132,14 +138,16 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Headers:** `Authorization: Bearer jwt_token`
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "User profile retrieved successfully",
-      "data": { /* user data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "User profile retrieved successfully",
+    "data": {
+      /* user data */
     }
-    ```
+  }
+  ```
 
 #### **Update Profile**
 
@@ -148,23 +156,25 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Headers:** `Authorization: Bearer jwt_token`
 - **Request Body:**
 
-    ```json
-    {
-      "name": "John Updated",
-      "phone": "0987654321"
-    }
-    ```
+  ```json
+  {
+    "name": "John Updated",
+    "phone": "0987654321"
+  }
+  ```
 
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Profile updated successfully",
-      "data": { /* updated user data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Profile updated successfully",
+    "data": {
+      /* updated user data */
     }
-    ```
+  }
+  ```
 
 ### Bike Routes
 
@@ -175,28 +185,30 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Headers:** `Authorization: Bearer jwt_token`
 - **Request Body:**
 
-    ```json
-    {
-      "name": "Mountain Bike",
-      "description": "A durable mountain bike for rough terrains.",
-      "pricePerHour": 15,
-      "cc": 250,
-      "year": 2022,
-      "model": "X1",
-      "brand": "Yamaha"
-    }
-    ```
+  ```json
+  {
+    "name": "Mountain Bike",
+    "description": "A durable mountain bike for rough terrains.",
+    "pricePerHour": 15,
+    "cc": 250,
+    "year": 2022,
+    "model": "X1",
+    "brand": "Yamaha"
+  }
+  ```
 
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Bike added successfully",
-      "data": { /* bike data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Bike added successfully",
+    "data": {
+      /* bike data */
     }
-    ```
+  }
+  ```
 
 #### **Get All Bikes**
 
@@ -204,14 +216,16 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Method:** `GET`
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Bikes retrieved successfully",
-      "data": [ /* list of bikes */ ]
-    }
-    ```
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Bikes retrieved successfully",
+    "data": [
+      /* list of bikes */
+    ]
+  }
+  ```
 
 #### **Update Bike (Admin Only)**
 
@@ -220,22 +234,24 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Headers:** `Authorization: Bearer jwt_token`
 - **Request Body:**
 
-    ```json
-    {
-      "pricePerHour": 20
-    }
-    ```
+  ```json
+  {
+    "pricePerHour": 20
+  }
+  ```
 
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Bike updated successfully",
-      "data": { /* updated bike data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Bike updated successfully",
+    "data": {
+      /* updated bike data */
     }
-    ```
+  }
+  ```
 
 #### **Delete Bike (Admin Only)**
 
@@ -244,14 +260,16 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Headers:** `Authorization: Bearer jwt_token`
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Bike deleted successfully",
-      "data": { /* deleted bike data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Bike deleted successfully",
+    "data": {
+      /* deleted bike data */
     }
-    ```
+  }
+  ```
 
 ### Rental Routes
 
@@ -262,23 +280,25 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Headers:** `Authorization: Bearer jwt_token`
 - **Request Body:**
 
-    ```json
-    {
-      "bikeId": "60d9c4e4f3b4b544b8b8d1c4",
-      "startTime": "2024-06-10T09:00:00Z"
-    }
-    ```
+  ```json
+  {
+    "bikeId": "60d9c4e4f3b4b544b8b8d1c4",
+    "startTime": "2024-06-10T09:00:00Z"
+  }
+  ```
 
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Rental created successfully",
-      "data": { /* rental data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Rental created successfully",
+    "data": {
+      /* rental data */
     }
-    ```
+  }
+  ```
 
 #### **Return Bike (Admin Only)**
 
@@ -288,14 +308,16 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Body:** Not needed
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Bike returned successfully",
-      "data": { /* updated rental data */ }
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Bike returned successfully",
+    "data": {
+      /* updated rental data */
     }
-    ```
+  }
+  ```
 
 #### **Get All Rentals for User**
 
@@ -304,14 +326,16 @@ Here’s a detailed reference for the API endpoints available in the system.
 - **Request Headers:** `Authorization: Bearer jwt_token`
 - **Response:**
 
-    ```json
-    {
-      "success": true,
-      "statusCode": 200,
-      "message": "Rentals retrieved successfully",
-      "data": [ /* list of rentals */ ]
-    }
-    ```
+  ```json
+  {
+    "success": true,
+    "statusCode": 200,
+    "message": "Rentals retrieved successfully",
+    "data": [
+      /* list of rentals */
+    ]
+  }
+  ```
 
 ## ⚠️ Error Handling and Validation
 
@@ -323,46 +347,46 @@ The system is equipped with a global error handler to catch and handle errors gr
 - **Message:** A descriptive error message.
 - **Error Messages:**
 
-    ```json
-    [
-      {
-        "path": "",
-        "message": "Detailed error message"
-      }
-    ]
-    ```
+  ```json
+  [
+    {
+      "path": "",
+      "message": "Detailed error message"
+    }
+  ]
+  ```
 
 ### Common Errors
 
 - **No Data Found:**
 
-    ```json
-    {
-      "success": false,
-      "message": "No Data Found",
-      "data": []
-    }
-    ```
+  ```json
+  {
+    "success": false,
+    "message": "No Data Found",
+    "data": []
+  }
+  ```
 
 - **Route Not Found:**
 
-    ```json
-    {
-      "success": false,
-      "statusCode": 404,
-      "message": "Not Found"
-    }
-    ```
+  ```json
+  {
+    "success": false,
+    "statusCode": 404,
+    "message": "Not Found"
+  }
+  ```
 
 - **Unauthorized Access:**
 
-    ```json
-    {
-      "success": false,
-      "statusCode": 401,
-      "message": "You have no access to this route"
-    }
-    ```
+  ```json
+  {
+    "success": false,
+    "statusCode": 401,
+    "message": "You have no access to this route"
+  }
+  ```
 
 ## 🛡️ Security Considerations
 
