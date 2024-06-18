@@ -7,7 +7,9 @@ import catchAsync from "../utils/catchAsync";
 
 const authCheck = (...requiredRole: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const token = req.headers.authorization;
+    const bearerToken = req.headers.authorization as string;
+    // Exclude the Bearer from token
+    const token = bearerToken.split(" ")[1];
     if (token === "" || !token) {
       return res.status(httpStatus.UNAUTHORIZED).json({
         success: false,
