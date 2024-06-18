@@ -116,6 +116,8 @@ const bikeUpdateValidationSchema = z.object({
   }),
 });
 
+// Zod schema for validating ObjectId
+
 export const BikeValidationSchema = {
   bikeValidationSchema,
   bikeUpdateValidationSchema,

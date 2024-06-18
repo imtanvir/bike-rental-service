@@ -39,9 +39,8 @@ const userSchema = new Schema<TUser, ExtendModel>(
 
 // Hash the password to secure
 userSchema.pre("save", async function (next) {
-  const user = this;
-  user.password = await bcrypt.hash(
-    user.password,
+  this.password = await bcrypt.hash(
+    this.password,
     Number(config.dcrypt_salt_round)
   );
   next();
@@ -56,8 +55,16 @@ userSchema.post("save", function (doc, next) {
 });
 
 userSchema.statics.isUserExist = async function (email: string) {
-  return await UserModel.findOne({ email });
+  return await UserModel.findOne({ email }).select("+password");
 };
+
+userSchema.statics.isPasswordMatched = async function (
+  plainPassword: string,
+  hashPassword: string
+) {
+  return await bcrypt.compare(plainPassword, hashPassword);
+};
+
 // userSchema.statics.isUserExist = async function(plainPassword:string, hashPassword:string) {
 //   return await UserModel.findOne()
 // }

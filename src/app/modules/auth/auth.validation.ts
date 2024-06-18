@@ -10,7 +10,7 @@ const signUpValidationSchema = z.object({
       .string()
       .email("Invalid email address format")
       .regex(
-        /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+        /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
         "Email must match specific pattern"
       ),
     password: z.string().min(6, "Password must be at least 6 characters long"),
@@ -33,10 +33,10 @@ const logInValidationSchema = z.object({
       .string()
       .email("Invalid email address format")
       .regex(
-        /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+        /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
         "Email must match specific pattern"
       ),
-    password: z.string().min(6, "Password must be at least 6 characters long"),
+    password: z.string({ required_error: "Password must be required!" }),
   }),
 });
 

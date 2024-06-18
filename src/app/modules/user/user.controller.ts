@@ -7,6 +7,14 @@ import { UserService } from "./user.service";
 const getProfile = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
   const result = await UserService.getProfile(user.email);
+  if (!result) {
+    return sendResponse(res, {
+      success: false,
+      message: "User profile data not found!",
+      statusCode: httpStatus.NOT_FOUND,
+      data: result,
+    });
+  }
   sendResponse(res, {
     success: true,
     message: "User profile retrieved successfully",
