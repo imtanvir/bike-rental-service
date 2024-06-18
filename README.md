@@ -1,6 +1,6 @@
 # 🚲 Bike Rental Reservation System Backend
 
-Welcome to the Bike Rental Reservation System backend project! This backend is designed to support a seamless bike rental service for tourists and locals in Cox's Bazar. Below you'll find a comprehensive overview of the project, its features, the technologies used, and how to set it up and run it on your local machine.
+Welcome to the Bike Rental Reservation System backend project! This backend is designed to support a seamless bike rental service. Below you'll find a comprehensive overview of the project, its features, the technologies used, and how to set it up and run it on your local machine.
 
 Live: [https://assignment-3-kappa-dun.vercel.app/]
 
@@ -33,15 +33,15 @@ Follow these instructions to get the backend up and running on your local machin
 
 ### Prerequisites
 
-- Node.js (v14 or later)
-- MongoDB (running locally or accessible remotely)
+- Node.js
+- MongoDB
 
 ### Installation
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/bike-rental-backend.git
+   git clone https://github.com/imtanvir/bike-rental-backend.git
    cd bike-rental-backend
    ```
 
@@ -56,17 +56,19 @@ Follow these instructions to get the backend up and running on your local machin
    Create a `.env` file in the root directory and add the following variables:
 
    ```plaintext
-   MONGO_URI=mongodb://localhost:27017/bike-rental
+   MONGO_URI=mongodb://mongodb_credentials/bike-rental
    JWT_SECRET=your_jwt_secret
+    etc ...
    ```
 
 4. **Run the application:**
 
    ```bash
-   npm start
+   //for locally
+   npm run start:dev
    ```
 
-   The server will start on `http://localhost:3000`.
+   The server will start on `http://localhost:5000`.
 
 ## 📚 API Endpoints
 

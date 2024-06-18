@@ -29,7 +29,7 @@ const logInUser = async (payload: { email: string; password: string }) => {
     throw new AppError(httpStatus.UNAUTHORIZED, "Incorrect password!");
   }
 
-  const jwtPayload: TUser = { ...user.toObject() };
+  const jwtPayload: TUser = { ...user.toObject(), password: "" };
   const accessToken = createToken(
     jwtPayload,
     config.jwt_secret as string,
